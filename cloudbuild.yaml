@@ -5,7 +5,6 @@ steps:
 images:
   - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME'
 
-
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/mydeployment', 'cal-ms=australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME']
   env:
