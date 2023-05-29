@@ -3,7 +3,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME', '.']
 images:
-    - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME'
+  - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME'
 
 
 - name: 'gcr.io/cloud-builders/kubectl'
