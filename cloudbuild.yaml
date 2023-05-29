@@ -1,12 +1,24 @@
 steps:
-# Build Docker & save Image
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME', '.']
-images:
-  - 'australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME'
+    # Build Docker & save Image
+    - name: "gcr.io/cloud-builders/docker"
+      args:
+          [
+              "build",
+              "-t",
+              "australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME",
+              ".",
+          ]
+      images:
+          - "australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME"
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'deployment/mydeployment', 'cal-ms=australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME']
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=southeast1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=sit737-task10-2d-cluster'
+    - name: "gcr.io/cloud-builders/kubectl"
+      args:
+          [
+              "set",
+              "image",
+              "deployment/mydeployment",
+              "cal-ms=australia-southeast1-docker.pkg.dev/$PROJECT_ID/sit737-docker-repo/cal_ms:$TAG_NAME",
+          ]
+      env:
+          - "CLOUDSDK_COMPUTE_ZONE=southeast1"
+          - "CLOUDSDK_CONTAINER_CLUSTER=sit737-task10-2d-cluster"
