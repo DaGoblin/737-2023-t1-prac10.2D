@@ -17,7 +17,7 @@ const logger = winston.createLogger({
     ],
 });
 
-const VERSION = process.env.PORT;
+const VERSION = process.env.APP_VERSION;
 
 // If we're not in production then log to the `console` with the format:
 // `${info.level}: ${info.message} JSON.stringify({ ...rest }) `
