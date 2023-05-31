@@ -158,6 +158,14 @@ app.get("/divide", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-    console.log(`Microservice listening at http://localhost:${PORT}`);
+// app.listen(PORT, () => {
+//     console.log(`Microservice listening at http://localhost:${PORT}`);
+// });
+var server = app.listen(3000, function () {
+    console.log("Server started on port 3000");
 });
+
+module.exports = {
+    app: app,
+    server: server,
+};

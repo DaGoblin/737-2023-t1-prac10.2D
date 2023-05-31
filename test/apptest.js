@@ -1,5 +1,23 @@
 var expect = require("chai").expect;
 var request = require("axios");
+// const server = require("../server");
+var { app, server } = require("../server");
+
+// Before running the tests, start the server
+// before(function (done) {
+//     server.on("listening", function () {
+//       console.log("Server started on port 3000 In test");
+//       done();
+//     });
+//   });
+  
+  // After running the tests, stop the server
+  after(function (done) {
+    server.close(function () {
+      console.log("Server stopped");
+      done();
+    });
+  });
 
 describe("Test Addition", () => {
     let url = "http://localhost:3000/add/2/4";
